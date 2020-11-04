@@ -14,14 +14,17 @@ fun main(args: Array<String>) {
     runApplication<DemokotlinaApplication>(*args)
 }
 
+data class SpaceCraft(val id:Int = 1, val name: String = "name1")
+
 @RestController
 class GreetingController {
 
     val counter = AtomicLong()
 
     @GetMapping("/greeting")
-    fun greeting(@RequestParam(value = "name", defaultValue = "World") name: String): String {
+    fun greeting(@RequestParam(value = "name", defaultValue = "World") name: String): SpaceCraft {
 //        Greeting(counter.incrementAndGet(), "Hello, $name");
-        return counter.incrementAndGet().toString();
+//        return counter.incrementAndGet().toString();
+        return SpaceCraft(11, "manlan1");
     }
 }
